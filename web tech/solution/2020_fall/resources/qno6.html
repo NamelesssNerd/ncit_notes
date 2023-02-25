@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <script>
+        function validateForm() {
+            var email = document.forms["loginForm"]["email"].value;
+            var password = document.forms["loginForm"]["password"].value;
+
+            // Check if email and password fields are empty
+            if (email == "" || password == "") {
+                alert("Please fill in all the required fields.");
+                return false;
+            }
+
+            // Check if email is in valid format
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Check if password is at least 8 characters long
+            if (password.length < 8) {
+                alert("Password should be at least 8 characters long.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="loginForm" method="post" action="login.php" onsubmit="return validateForm()">
+        <label>Email:</label><br>
+        <input type="email" name="email"><br>
+        <label>Password:</label><br>
+        <input type="password" name="password"><br>
+        <input type="checkbox" name="remember_me" value="1">Remember Me<br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
+

@@ -6,6 +6,7 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{fancyhdr}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -42,14 +43,19 @@
 \textheight=9.0in
 \headsep=0.25in
 
-\title{ 2021 Spring}
-\author{ Web Technology Solution }
+\title{ Web Technology Solution\\2021 Spring}
+
+\author{ Sanjaya (Bir Bikram) Shrestha }
 \date{\today}
 
 
 
 \begin{document}
 \maketitle	
+\pagestyle{fancy}
+\fancyhead[RO,LE]{\textbf{WT Solution 2021 Spring}}
+\fancyfoot[RO,RE]{By: Sanjaya (Bir Bikram) Shrestha}
+
 \tableofcontents
 \pagebreak
 
@@ -411,6 +417,10 @@ With these methods, we can easily get elements from the document into JavaScript
 
 
 \section{(Q No. 5A) What do you mean by events and events handling? Write HTML and JS code to display digital clock.}
+\subparagraph{}
+An event is an action or occurrence that takes place in the web browser, such as a user clicking a button or a page finishing loading. Event handling is the process of writing code that responds to these events.
+
+In HTML and JavaScript, we can use event listeners to handle events. An event listener is a function that is called when a particular event occurs. For example, we might attach an event listener to a button element, so that when the button is clicked, the function is executed.
 \lstinputlisting[language=java]{resources/qno5a.html}
 
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mouse Location</title>
+	<style>
+		#cursor-location {
+			position: fixed;
+			top: 10px;
+			left: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="cursor-location"></div>
+
+	<script>
+		// add a mousemove event listener to the document
+		document.addEventListener("mousemove", function(event) {
+			// get the current mouse position
+			var x = event.clientX;
+			var y = event.clientY;
+
+			// update the text of the cursor location element
+			var cursorLocation = document.getElementById("cursor-location");
+			cursorLocation.innerHTML = "Mouse position: " + x + ", " + y;
+		});
+	</script>
+</body>
+</html>

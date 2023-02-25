@@ -1,0 +1,16 @@
+#myDiv {
+	position: fixed;
+	border: 2px solid black;
+}
+
+#P1 {
+	position: relative;
+	font-family: Arial, sans-serif;
+	color: green;
+}
+
+#P2 {
+	position: absolute;
+	top: 0px;
+	left: 200px;
+}

@@ -23,6 +23,7 @@
 \contentsline {subparagraph}{}{12}{}%
 \contentsline {section}{\numberline {9}(Q No. 4B) Write JavaScript program which validates the user data(name, email, contact no) and displays the success message if validated successfully. Also create HTML form for entering data.}{12}{}%
 \contentsline {section}{\numberline {10}(Q No. 5A) What do you mean by events and events handling? Write HTML and JS code to display digital clock.}{14}{}%
+\contentsline {subparagraph}{}{14}{}%
 \contentsline {section}{\numberline {11}(Q No. 5B) What are the different file handling methods available in PHP? After validating form value in 5(A) write the contents to the users.txt with time of login. Also redirect home.php after writing contents to the file. The content of file should look like this. Name: abs Sharma, Email: testuser@gmail.com Logged in on: Fri Feb 01 2020 17:00:00 GMT +0545 (Nepal Time)}{15}{}%
 \contentsline {subparagraph}{}{15}{}%
 \contentsline {section}{\numberline {12}(Q No. 6A) Explain the use of PHP \$\_POST, \$\_GET and \$\_REQUEST variables.}{16}{}%

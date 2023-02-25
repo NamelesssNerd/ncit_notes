@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      input {
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <div><b>Students data entry form</b></div>
+      <label for="name">Student Name:</label>
+      <input type="text" size="30" name="name" /><br />
+      <label for="address">Address:</label>
+      <input type="text" size="30" name="address" /><br />
+      <label for="college">College:</label>
+      <input type="text" size="30" name="college" /><br />
+      <label for="email">Gender:</label>
+      <input type="email" name="email" /><br />
+      <label for="gender">Gender:</label>
+      <input type="radio" name="gender" value="boy" />Boy
+      <input type="radio" name="gender" value="girl" /> Girl
+      <input type="radio" name="gender" value="other" /> Other
+      <br />
+      <label for="subjects">Subjects</label>
+      <input type="checkbox" name="subjects" value="pqt" /> PQT
+      <input type="checkbox" name="subjects" value="wt" /> WT
+      <input type="checkbox" name="subjects" value="dsa" /> DSA
+      <input type="checkbox" name="subjects" value="lc" /> LC
+      <input type="checkbox" name="subjects" value="emth-iii" /> EMTH-III
+      <input type="checkbox" name="subjects" value="ec&i" /> EC&I
+      <br />
+      <label for="city">City/Town: </label>
+      <select name="city">
+        <option value="kathmandu">Kathmandu</option>
+        <option value="nuwakot" selected>Nuwakot</option>
+        <option value="pokhara">Pokhara</option>
+        <option value="biratnagar">Biratnagar</option>
+      </select>
+      <br />
+      <label for="comment">Comment</label><br />
+      <textarea name="comment"></textarea>
+      <br />
+      <input type="reset" value="Clear" />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

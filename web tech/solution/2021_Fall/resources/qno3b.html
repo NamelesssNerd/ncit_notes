@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation</title>
+</head>
+<body>
+	<form id="myForm">
+		<label>Name:</label>
+		<input type="text" id="name" name="name"><br>
+
+		<label>Email:</label>
+		<input type="email" id="email" name="email"><br>
+
+		<label>Password:</label>
+		<input type="password" id="password" name="password"><br>
+
+		<input type="submit" value="Submit">
+	</form>
+
+	<script>
+		document.getElementById("myForm").addEventListener("submit", function(event) {
+			event.preventDefault(); // prevent the default form submission
+
+			// get the input values
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var password = document.getElementById("password").value;
+
+			// validate the input values
+			if (name.trim() == "") {
+				alert("Name is required.");
+				return false;
+			}
+
+			if (email.trim() == "") {
+				alert("Email is required.");
+				return false;
+			}
+
+			// check email format using regular expression
+			var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			if (!email.match(emailRegex)) {
+				alert("Invalid email format.");
+				return false;
+			}
+
+			if (password.trim() == "") {
+				alert("Password is required.");
+				return false;
+			}
+
+			// if all input values are valid, submit the form
+			alert("Form submitted successfully.");
+			document.getElementById("myForm").submit();
+		});
+	</script>
+</body>
+</html>
