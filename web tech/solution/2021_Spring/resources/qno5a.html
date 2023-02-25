@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Digital Clock</title>
+</head>
+<body>
+  <h1>Digital Clock</h1>
+  <p id="clock"></p>
+
+  <script>
+    // Get the clock element
+var clockElement = document.getElementById("clock");
+
+// Update the clock every second
+setInterval(function() {
+  var date = new Date();
+
+  // Get hours, minutes, and seconds
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+  // Convert to 12-hour format
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+
+  // Add leading zeros
+  if (minutes < 10) {
+    minutes = '0' + minutes;
+  }
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+
+  // Display the time
+  var time = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+  clockElement.innerHTML = time;
+}, 1000);
+
+  </script>
+</body>
+</html>

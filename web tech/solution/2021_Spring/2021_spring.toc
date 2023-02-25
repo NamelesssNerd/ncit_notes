@@ -1,0 +1,37 @@
+\contentsline {section}{\numberline {1}(Q No.1 A) What is web hosting? Explain any 4 types of web hosting.}{3}{}%
+\contentsline {paragraph}{}{3}{}%
+\contentsline {subparagraph}{}{3}{}%
+\contentsline {subparagraph}{}{3}{}%
+\contentsline {subparagraph}{}{4}{}%
+\contentsline {section}{\numberline {2}(Q No.1 B) What is mime type specification in request/response transaction between browser and server?}{5}{}%
+\contentsline {subparagraph}{}{5}{}%
+\contentsline {subparagraph}{Examples of MIME types are:}{5}{}%
+\contentsline {section}{\numberline {3}(Q No. 2A) What are the different typs of list available in HTML? Explain each with suitable availabe code.}{6}{}%
+\contentsline {subparagraph}{}{6}{}%
+\contentsline {subparagraph}{Unordered List or Bulleted List (ul)}{6}{}%
+\contentsline {subparagraph}{Ordered List or Numbered List (ol)}{6}{}%
+\contentsline {subparagraph}{Description List or Definition List (dl)}{6}{}%
+\contentsline {section}{\numberline {4}(Q No. 2B) Write Html tags to generate following form.}{7}{}%
+\contentsline {section}{\numberline {5}(Q No. 3A) What are the different level of stylesheets with their hierarchy of implementation? Explain the float and clear properties with clear and valid example?}{8}{}%
+\contentsline {subparagraph}{}{8}{}%
+\contentsline {subparagraph}{}{8}{}%
+\contentsline {section}{\numberline {6}(Q No. 3B) What are the logical and physical tags? Give examples also.}{9}{}%
+\contentsline {subparagraph}{}{9}{}%
+\contentsline {section}{\numberline {7}(Q No. 3C) What do you mean by table-less design and how will you achieve it using CSS?}{10}{}%
+\contentsline {subparagraph}{}{10}{}%
+\contentsline {section}{\numberline {8}(Q No. 4A) What do you mean my DOM in javascript? How do you get elements from document to javascript? Write example of all methods.}{12}{}%
+\contentsline {subparagraph}{}{12}{}%
+\contentsline {section}{\numberline {9}(Q No. 4B) Write JavaScript program which validates the user data(name, email, contact no) and displays the success message if validated successfully. Also create HTML form for entering data.}{12}{}%
+\contentsline {section}{\numberline {10}(Q No. 5A) What do you mean by events and events handling? Write HTML and JS code to display digital clock.}{14}{}%
+\contentsline {section}{\numberline {11}(Q No. 5B) What are the different file handling methods available in PHP? After validating form value in 5(A) write the contents to the users.txt with time of login. Also redirect home.php after writing contents to the file. The content of file should look like this. Name: abs Sharma, Email: testuser@gmail.com Logged in on: Fri Feb 01 2020 17:00:00 GMT +0545 (Nepal Time)}{15}{}%
+\contentsline {subparagraph}{}{15}{}%
+\contentsline {section}{\numberline {12}(Q No. 6A) Explain the use of PHP \$\_POST, \$\_GET and \$\_REQUEST variables.}{16}{}%
+\contentsline {subparagraph}{}{16}{}%
+\contentsline {section}{\numberline {13}(Q No. 5B) Write PHP-MySQL code validate the user login data (email and password). That is check whether the user data is available in database or not. Also in another file write code to display the user information (name and email). (Assume database name to "testdb" and table name is "users")}{17}{}%
+\contentsline {subparagraph}{}{17}{}%
+\contentsline {section}{\numberline {14}(Q No. 7A) Hyperlinks and Hypermedia}{19}{}%
+\contentsline {subparagraph}{}{19}{}%
+\contentsline {section}{\numberline {15}(Q No. 7B) Pop up boxes in JavaScript}{20}{}%
+\contentsline {subparagraph}{}{20}{}%
+\contentsline {section}{\numberline {16}(Q No. 7C) Types of array in PHP}{21}{}%
+\contentsline {subparagraph}{}{21}{}%

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Data Validation</title>
+</head>
+<body>
+  <form action="qno5b.php" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br>
+
+    <label for="contact">Contact No:</label>
+    <input type="text" id="contact" name="contact"><br>
+
+    <input type="submit" value="Submit" onclick="validateForm()">
+  </form>
+
+  <div id="message"></div>
+
+  <script>
+    function validateForm() {
+  // Get form elements
+  var nameInput = document.getElementById("name");
+  var emailInput = document.getElementById("email");
+  var contactInput = document.getElementById("contact");
+  var messageDiv = document.getElementById("message");
+
+  // Get input values
+  var name = nameInput.value.trim();
+  var email = emailInput.value.trim();
+  var contact = contactInput.value.trim();
+
+  // Validate input
+  if (name === "") {
+    messageDiv.innerHTML = "Please enter your name.";
+    nameInput.focus();
+    return false;
+  }
+
+  if (email === "") {
+    messageDiv.innerHTML = "Please enter your email address.";
+    emailInput.focus();
+    return false;
+  } else if (!validateEmail(email)) {
+    messageDiv.innerHTML = "Please enter a valid email address.";
+    emailInput.focus();
+    return false;
+  }
+
+  if (contact === "") {
+    messageDiv.innerHTML = "Please enter your contact number.";
+    contactInput.focus();
+    return false;
+  } else if (!validateContact(contact)) {
+    messageDiv.innerHTML = "Please enter a valid contact number.";
+    contactInput.focus();
+    return false;
+  }
+
+  // If all inputs are valid, display success message
+  messageDiv.innerHTML = "Your data has been validated successfully!";
+}
+
+function validateEmail(email) {
+  // Regular expression for email validation
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function validateContact(contact) {
+  // Regular expression for contact number validation
+  var contactRegex = /^\d{10}$/;
+  return contactRegex.test(contact);
+}
+
+  </script>
+</body>
+</html>
