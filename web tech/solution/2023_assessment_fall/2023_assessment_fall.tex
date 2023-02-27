@@ -340,11 +340,344 @@ The differences between the DOM: DOM Level 0, DOM Level 1, and DOM Level 2 are:
 
 \noindent\rule{\linewidth}{0.4pt}
 \section{(Q No.5A) Create a registration form as given. Also validates it with JavaScript. (All input should be fulfilled else *required message will display, the name must be of 8 characters, email should in the proper format. the phone must be of 10 digits, password include only number and must be of 8 digits, and starting and ending with 0, Confirm password and Password must match).}
+\includegraphics[width=0.25\textwidth]{resources/qno5a.PNG}
 \subparagraph{}
+Here is the requied JS code to validate the given requirements:
+
+\lstinputlisting[language=html, caption={Html Js code for validation}]{resources/qno5a.html}
+
+
+\noindent\rule{\linewidth}{0.4pt}
+\section{(Q No.5B) What are session and cookies? Mention any five difference between them with an example. An example must include all the function of the session and cookies. Also writes a PHP session code that helps detect no of website visit.}
+\subparagraph{}
+
+Session and cookies are two ways to store data between HTTP requests in PHP. Here are some key differences:
+
+\begin{enumerate}
+    \item \textbf{Storage Location:} Session data is stored on the server, while cookie data is stored on the client (in the browser).
+
+    \item \textbf{Data Size:} Cookies have a maximum size limit of around 4 KB, while session data can be much larger.
+    
+    \item \textbf{Security:} Session data is generally considered more secure than cookies, as it is stored on the server and cannot be easily tampered with by the client.
+    
+    \item \textbf{Expiration:} Cookies can have an expiration date, while session data is destroyed when the user closes their browser or logs out.
+    
+    \item \textbf{Accessibility:} Cookies can be accessed by both the client-side scripts and server-side scripts, while session data can only be accessed by server-side scripts.
+    \item Cookies can be set using the setcookie() function. This function takes several parameters including the cookie name, value, expiration time, and path.
+    \begin{lstlisting}[language=php]
+        setcookie('username', 'john_doe', time() + 3600, '/');
+    \end{lstlisting}
+    For Retrieving data from cookie we use following code:
+    \begin{lstlisting}[language=php]
+        // Check if the 'username' cookie is set and retrieve its value
+        if (isset($_COOKIE['username'])) {
+        $username = $_COOKIE['username'];
+        echo "Welcome back, $username!";
+        } else {
+        echo "Please log in to continue.";
+        }
+    \end{lstlisting}
+    For starting session and setting values in it we use following code:
+    \begin{lstlisting}[language=php]
+        // Start the session
+        session_start();
+
+        // Check if the 'username' session variable is set and retrieve its value
+        if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+        echo "Welcome back, $username!";
+        } else {
+        echo "Please log in to continue.";
+        }
+
+    \end{lstlisting}
+
+    For deleting cookie and session we use following code:
+    Here to remove cookie we reset cookie time to 1 hour before, using -3600 which expires the cookie. And for session we use session\_destroy() function.
+    \begin{lstlisting}[language=php]
+        // removing data from session 
+        unset($_SESSION['username']);
+
+        // for removing cookie
+        setcookie('username', 'john_doe', time() - 3600, '/');
+
+        // for removing session
+        session_destroy();
+
+    \end{lstlisting}
+\end{enumerate}
 
 
 
 \noindent\rule{\linewidth}{0.4pt}
-\section{(Q No.1 A) To make an online presence or just transfer any data there are certain predefined rules to follow. Explain any 5 such commonly used protocols that serve different purposes of their own.}
+\section{(Q No.6A) Explain \$\_SERVER, \$\_POST, \$\_GET, \$\_REQUEST. Also, validate the form of question 5a using server-side scripting. }
 \subparagraph{}
+
+In PHP, \$\_SERVER, \$\_POST, \$\_GET, and \$\_REQUEST are predefined variables used to handle different types of user input.
+\begin{itemize}
+    \item \$\_SERVER 
+    The \$\_SERVER variable contains information about the web server and the current request. It is an array that contains various properties like the current script name, the request method (e.g. GET, POST), and the server address.
+    
+    \item \$\_POST
+    The \$\_POST variable contains data that has been submitted via an HTTP POST request. It is an associative array where the keys are the input names and the values are the input values.
+    
+    Here's an example of how to use \$\_POST to retrieve a form input value:
+    
+    \item \$\_GET
+    
+    The \$\_GET variable contains data that has been submitted via an HTTP GET request. It is also an associative array where the keys are the input names and the values are the input values.
+    
+    \item \$\_REQUEST
+    
+    The \$\_REQUEST variable contains data that has been submitted via either an HTTP GET or POST request. It is also an associative array where the keys are the input names and the values are the input values.
+    
+    Here's example for all type of request:
+    
+    \begin{lstlisting}[language=php]
+        // get the current script name
+        $script_name = $_SERVER['SCRIPT_NAME'];
+        // when form is submittes using post request
+        $username = $_POST['username'];
+        
+        // when form is submittes using get request
+        $username = $_GET['username'];
+
+        // to get data sent from any form request eg: GET and POST
+        $username = $_REQUEST['username'];
+
+    \end{lstlisting}
+
+\end{itemize}
+
+Here is the PHP code to validate the given form:
+
+\lstinputlisting[language=php]{resources/qno6a.php}
+
+
+\noindent\rule{\linewidth}{0.4pt}
+\section{(Q No.6B) Develop a login form that includes Username and Password (Username="admin" Password="admin" already presents in your database). Write a PHP and MYSQL first to verify log in credentials. Second when login is successful it navigates to the form in question 5. When you fill out the form it should dispaly the information in the table structure. (Show database connection and assume database name and table name yourself) }
+\subparagraph{}
+
+Here is the source code to check login and redirect to form.php file:
+
+\begin{lstlisting}[language=php]
+    <?php
+	// Database connection
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "mydatabase";
+
+	$conn = new mysqli($servername, $username, $password, $dbname);
+
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
+	// Check if username and password are correct
+    $username = $_POST['username'];
+	$password = $_POST['password'];
+
+	// Query database for matching user
+	$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+	$result = $conn->query($sql);
+
+	if ($result->num_rows == 1) {
+		// If login is successful, display a success message and redirect to form
+		echo "Login successful";
+		header("Location: form.php");
+		exit();
+	} else {
+		// If login fails, display an error message
+		echo "Invalid username or password";
+	}
+?>
+\end{lstlisting}
+On successful login we have redirected to the form.php now, when form.php is submitted and validates we then redirect to the succes.php
+Here is the success.php code where we display all the data from table, 
+
+Here is the form.php extra code that will insert data to database,
+\begin{lstlisting}[language=php]
+    
+    // Insert data into table
+    $sql = "INSERT INTO users (username, email, phone, password) VALUES ('$username', '$email', '$phone', '$password')";
+
+    if ($conn->query($sql) === TRUE) {
+        // If data is successfully inserted, display a success message
+        echo "Data successfully submitted";
+        header("Location : success.php") ;
+    } else {
+        // If an error occurs, display an error message
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+
+\end{lstlisting}
+
+After redirecting to success.php we now display data in table format, reading from database table.
+\begin{lstlisting}[language=php]
+    <?php
+	// Database connection
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "mydatabase";
+
+	$conn = new mysqli($servername, $username, $password, $dbname);
+
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
+	// Select data from table
+	$sql = "SELECT * FROM users";
+	$result = $conn->query($sql);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table</title>
+</head>
+<body>
+	<h2>Table</h2>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Phone</th>
+		</tr>
+		<?php
+			// Display data in table rows
+			if ($result->num_rows > 0) {
+				while($row = $result->fetch_assoc()) {
+					echo "<tr><td>" . $row["username"] . "</td><td>" . $row["email"] . "</td><td>" . $row["phone"] . "</td></tr>";
+				}
+			} else {
+				echo "0 results";
+			}
+		?>
+	</table>
+</body>
+</html>
+
+<?php
+	$conn->close();
+?>
+
+\end{lstlisting}
+
+
+
+\noindent\rule{\linewidth}{0.4pt}
+\section{(Q No.7A) Arrays in PHP}
+In PHP, there are three types of arrays:
+\begin{enumerate}
+    \item \textbf{Indexed arrays:}
+    An indexed array stores a collection of values, each of which is assigned a numeric index. The index starts at 0 and increases by 1 for each element in the array. Indexed arrays can be created using the array() function or using the shorthand [] syntax. Here's an example:
+    \begin{lstlisting}[language=php]
+        $names = array("ram", "shyam", "hari");
+        // or
+        $names = ["ram", "shyam", "hari"];
+    \end{lstlisting}
+
+    \item \textbf{Associative arrays:}
+    An associative array stores a collection of key-value pairs, where each key is a string and each value can be of any type. Associative arrays can be created using the \[array()\] function or using the shorthand [] syntax, but the key-value pairs must be explicitly defined using the =$>$ operator. Here's an example:
+    \begin{lstlisting}[language=php]
+        $person = array("name" => "John", "age" => 30, "email" => "john@example.com");
+        // or
+        $person = ["name" => "John", "age" => 30, "email" => "john@example.com"];
+
+    \end{lstlisting}
+
+    \item \textbf{Multi dimensional array:}
+    Multidimensional array is an array that contains one or more arrays as its elements. Each element of a multidimensional array can be an array itself, which can contain further arrays as its elements.
+
+    Multidimensional arrays are useful for representing complex data structures, such as tables or matrices. They can be indexed using multiple sets of keys, which allows for flexible and efficient data access.
+    \begin{lstlisting}[language=php]
+        $data = array(
+            array("John", "Doe", 25),
+            array("Jane", "Smith", 30),
+            array("Bob", "Johnson", 40)
+        );
+    \end{lstlisting}
+\end{enumerate}
+
+\noindent\rule{\linewidth}{0.4pt}
+\section{(Q No.7B) Key press events in JS}
+\subparagraph{}
+In JavaScript, you can use the keypress event to detect when a key is pressed on the keyboard. Here's an example:
+
+\begin{lstlisting}[language=html]
+    <!DOCTYPE html>
+<html>
+<head>
+	<title>Keypress Event Example</title>
+</head>
+<body>
+	<input type="text" id="myInput">
+
+	<script>
+		// Get the input element
+		var input = document.getElementById("myInput");
+
+		// Add an event listener for the keypress event
+		input.addEventListener("keypress", function(event) {
+			// Get the key code of the pressed key
+			var keyCode = event.key;
+
+			// Check if the key is the Enter key (keyCode 13)
+			if (keyCode === "Enter") {
+				// Do something when the Enter key is pressed
+				alert("Enter key pressed!");
+			}
+		});
+	</script>
+</body>
+</html>
+In this example, an input element is added to the HTML document with an id of myInput. A JavaScript event listener is then added to the input element to listen for the keypress event.
+
+When a key is pressed, the event listener function is called with an event parameter. The function first checks whether the keyCode property of the event is available. It then checks whether the key pressed is the Enter key. If the Enter key is pressed, the function displays an alert message.
+
+\end{lstlisting}
+
+\noindent\rule{\linewidth}{0.4pt}
+\section{(Q No.7B) DOM Tree}
+\subparagraph{}
+The DOM (Document Object Model) hierarchy in JavaScript refers to the structure of HTML elements and their relationships with each other. The DOM represents an HTML document as a tree-like structure, where each node in the tree represents an element in the document. Here's an example of a simple HTML document and its corresponding DOM hierarchy:
+\begin{lstlisting}[language=html]
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>My Page</title>
+      </head>
+      <body>
+        <h1 id="myHeading">Welcome to my page!</h1>
+        <p>This is a paragraph.</p>
+        <ul>
+          <li>List item 1</li>
+          <li>List item 2</li>
+          <li>List item 3</li>
+        </ul>
+        
+        <script>
+          // Retrieve the h1 element by its ID
+          var heading = document.getElementById('myHeading');
+          
+          // Change the text content of the h1 element
+          heading.textContent = 'Hello, world!';
+        </script>
+      </body>
+    </html>
+    
+    
+\end{lstlisting}
+In this example, the root node of the DOM hierarchy is the html element. The head and body elements are child nodes of the html element, and the title, h1, p, and ul elements are child nodes of the head and body elements. The li elements are child nodes of the ul element.
+
+In JavaScript, we can use the DOM API to manipulate the DOM hierarchy. To retrieve the h1 element and change its text content:
+we use the getElementById() method of the document object to retrieve the h1 element by its ID. We then use the textContent property to change the text content of the h1 element.
+
+
+
 \end{document}
