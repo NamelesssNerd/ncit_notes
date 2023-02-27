@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        <tr>
+            <td>MOMO</td>
+            <td id="momoprice">200</td>
+            <td><input type="number" name="momo" id="momo" onkeyup="total(event)"></td>
+            
+        </tr>
+        <tr>
+            <td>Pizza</td>
+            <td id="pizzaprice">200</td>
+            <td><input type="number" name="pizza" id="pizza" onkeyup="total(event)"></td>
+        </tr>
+    </table>
+
+    <button>Total</button> <input type="text" name="total" id="total" readonly>
+
+
+    <script>
+        
+
+        function total(event) {
+            let momo = document.getElementById("momo").value
+            let pizza = document.getElementById("pizza").value
+            let momoPrice = document.getElementById("momoprice").innerText
+            let pizzaPrice = document.getElementById("pizzaprice").innerText
+            let total = document.getElementById("total")
+
+            if(momo == ""){
+                momo = 0;
+            } 
+            if(pizza == ""){
+                pizza = 0;
+            } 
+
+            console.log(momo);
+            console.log(pizza);
+            console.log(momoPrice);
+            console.log(pizzaPrice);
+
+            let totalPrice =( parseInt(momo) * parseInt(momoPrice)) + (parseInt(pizza) * parseInt(pizzaPrice))
+
+            console.log(totalPrice);
+            total.value = totalPrice
+        }
+    </script>
+</body>
+</html>

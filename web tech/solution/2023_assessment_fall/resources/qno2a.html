@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            margin: 5px;
+        }
+        fieldset {
+            border: 1px dashed black;
+        }
+        
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend align="center">Registration</legend>
+            <fieldset>
+                <legend align="center">Personal Info</legend>
+                <label for="firstname">Firstname</label>
+                <input type="text" name="firstname" id="firstname">
+
+                <label for="lastname">Lastname</label>
+                <input type="text" name="lastname" id="lastname">
+
+                <label for="age">Age</label>
+                <input type="number" name="age" id="age"> <br>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+
+                <label for="phone_number">Phone </label>
+                <select name="phone_code" id="phone_code">
+                    <option value="nep" selected>+977</option>
+                    <option value="india">+91</option>
+                    <option value="us">+1</option>
+                </select>
+                <input type="phone_number" name="phone_number" id="phone_number"> <br>
+
+                <label for="address">Address </label>
+                <select name="address" id="address">
+                    <option value="ktm" selected>KTM</option>
+                    <option value="pokhara">Pokhara</option>
+                    <option value="butwal">Butwal</option>
+                </select>
+
+                <label for="gender">Gender</label>
+                <input type="radio" name="gender" id="male" value="male"> Male
+                <input type="radio" name="gender" id="female" value="female"> Female
+                <input type="radio" name="gender" id="other" value="other"> Other
+
+
+            </fieldset>
+
+            <fieldset>
+                <legend align="center">Credential</legend>
+                
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username"> <br>
+
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password">
+
+            </fieldset>
+
+            <fieldset>
+                <legend align="center">Interest</legend>
+                
+                <label for="interest">Hobby</label>
+                <input type="checkbox" name="interest" id="interest" value="cricket"> Cricket
+                <input type="checkbox" name="interest" id="interest" value="football"> Football
+                <input type="checkbox" name="interest" id="interest" value="movie"> Movie
+
+            </fieldset>
+
+            <label for="faculty">Faculty</label>
+            <input type="checkbox" name="faculty" id="faculty" value="it"> IT
+            <input type="checkbox" name="faculty" id="faculty" value="bca"> BCA
+            <input type="checkbox" name="faculty" id="faculty" value="engineering"> Engineering <br>
+
+            <label for="university">University</label>
+            <input type="text" name="university" id="university"><br>
+
+            <label for="photo">Photo</label>
+            <input type="file" name="photo" id="photo" accept="image/png"><br>
+
+            <label for="transcripts">Transcripts</label>
+            <input type="file" name="transcripts" id="transcripts" accept="image/png"> <br>
+
+            <label for="message">Message</label>
+            <textarea name="message" id="message" cols="40" rows="15" placeholder="Type your message here"></textarea>
+<br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+            <input type="button" value="Ok">
+        </fieldset>
+    </form>
+</body>
+</html>
